@@ -38,11 +38,19 @@ namespace ConsoleStack
 
     public class Manager : Client
     {
+        public Manager()
+        {
+            AccessHandler = new HasAccessAutomatic();
+        }
 
     }
 
     public class Admin : Client
     {
+        public Admin()
+        {
+            AccessHandler = new HasAccessAutomatic();
+        }
 
     }
 
