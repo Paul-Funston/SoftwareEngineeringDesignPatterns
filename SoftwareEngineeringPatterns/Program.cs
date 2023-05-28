@@ -43,12 +43,18 @@ public class CommunityBadge : Badges
 
     public override void GetPriveleges()
     {
-        throw new NotImplementedException();
+        _grantGroupAccess();
+        _user.GetPriveleges();
     }
 
     public override int GetReputation()
     {
-        throw new NotImplementedException();
+        return _user.GetReputation() + 5;
+    }
+
+    private void _grantGroupAccess()
+    {
+        Console.Write("Has Group Access. ");
     }
 }
 
@@ -60,12 +66,17 @@ public class BannedBadge : Badges
 
     public override void GetPriveleges()
     {
-        throw new NotImplementedException();
+        _blockAccess();
     }
 
     public override int GetReputation()
     {
-        throw new NotImplementedException();
+        return _user.GetReputation() * 0;
+    }
+
+    private void _blockAccess()
+    {
+        Console.WriteLine("User access restricted.");
     }
 }
 
@@ -77,11 +88,11 @@ public class HundredPosts : Badges
 
     public override void GetPriveleges()
     {
-        throw new NotImplementedException();
+        _user.GetPriveleges();
     }
 
     public override int GetReputation()
     {
-        throw new NotImplementedException();
+        return _user.GetReputation() + 100;
     }
 }
