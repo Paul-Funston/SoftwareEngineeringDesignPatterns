@@ -1,4 +1,17 @@
-﻿public abstract class Client
+﻿Client firstUser = new User();
+firstUser = new CommunityBadge(firstUser);
+firstUser = new CommunityBadge(firstUser);
+
+Console.WriteLine(firstUser.GetReputation());
+firstUser.GetPriveleges();
+
+firstUser = new HundredPosts(firstUser);
+Console.WriteLine(firstUser.GetReputation());
+
+firstUser = new BannedBadge(firstUser);
+Console.WriteLine(firstUser.GetReputation());
+
+public abstract class Client
 {
     public abstract int GetReputation();
     public abstract void GetPriveleges();
@@ -18,9 +31,9 @@ public class User : Client
         _grantBasicAccess();
     }
 
-    private string _grantBasicAccess()
+    private void _grantBasicAccess()
     {
-        return "User has basic access.";
+        Console.WriteLine("User has basic access.");
     }
 }
 
